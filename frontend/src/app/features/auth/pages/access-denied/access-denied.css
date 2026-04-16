@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  height: 90vh;
+}
+.form-card {
+  max-width: 660px;
+  background: #e6e6eb;
+  border-radius: 16px;
+  padding: 90px;
+  box-shadow: 0 6px18px rgba(0,0,0,.06);
+}
+.a{
+  display: flex;
+  justify-content: center; 
+}
+

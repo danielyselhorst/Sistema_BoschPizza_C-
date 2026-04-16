@@ -1,0 +1,23 @@
+<section class="page">
+    <div class="form-card">
+        <h2>{{ id ? 'Editar cliente' : 'Nova cliente' }}</h2>
+        <form [formGroup]="form" (ngSubmit)="save()">
+            <div class="field">
+                <label>Nome</label>
+                <input type="text" formControlName="name" placeholder="Digite seu nome" />
+            </div>
+            <div class="Address">
+                <label>Endereço</label>
+                <input type="text" formControlName="address" placeholder="Digite seu endereço" />
+            </div>
+            <div class="Phone">
+                <label>Telefone</label>
+                <input type="text" formControlName="phone" placeholder="Digite seu telefone" />
+            </div>
+            <div class="actions">
+                <button type="submit">Salvar</button>
+                <button type="button" (click)="cancel()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</section>

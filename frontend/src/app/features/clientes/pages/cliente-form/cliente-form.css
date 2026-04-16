@@ -1,0 +1,38 @@
+.page{
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  height: 80vh;
+}
+.form-card {
+  max-width: 560px;
+  background: #fff;
+  border-radius: 25px;
+  padding: 50px;
+  box-shadow: 0 6px18px rgba(0,0,0,.06);
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+.Address{
+ display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+.Phone{
+ display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+input[type="text"] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}

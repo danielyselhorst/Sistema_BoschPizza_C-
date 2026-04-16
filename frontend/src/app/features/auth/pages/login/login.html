@@ -1,0 +1,43 @@
+<section class="page">
+  <div class="form-card">
+
+    <h2>Login</h2>
+    <p>Acesse o sistema</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="field">
+        <label>Usuário</label>
+        <input
+          type="text"
+          formControlName="username"
+          placeholder="Digite seu usuário"
+        />
+      </div>
+
+      <div class="field">
+        <label>Senha</label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Digite sua senha"
+        />
+      </div>
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <div class="actions">
+        <button type="submit" [disabled]="loading">
+          {{ loading ? 'Entrando...' : 'Entrar' }}
+        </button>
+
+        <a routerLink="/cadastro">Criar conta</a>
+      </div>
+
+    </form>
+
+  </div>
+</section>
+      
+
+

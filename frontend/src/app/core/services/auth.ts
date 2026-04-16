@@ -1,0 +1,47 @@
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { LoginResponse } from '../models/login-response';
+import { LoginRequest } from '../models/login';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class Auth {
+  private http = inject(HttpClient);
+  private router = inject(Router);
+  private apiUrl = 'http://localhost:5157/auth';
+
+  hasUser(): Observable<{ exists: boolean }> {
+    return this.http.get<{ exists: boolean }>(`${this.apiUrl}/has-user`);
+  }
+ 
+  register(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/register`, data, {
+    responseType: 'text' as 'json'
+  });
+  }
+
+  login(data: LoginRequest): Observable<LoginResponse>{
+    return this.http.post<LoginResponse>(`${this.apiUrl}/login`, data);
+  }
+
+  saveToken(token: string): void {
+    localStorage.setItem('token', token);
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  isAuthenticated(): boolean {
+    return !!this.getToken();
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
+
+}

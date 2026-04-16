@@ -1,0 +1,54 @@
+<section class="page">
+  <div class="form-card">
+    <h2>Cadastro</h2>
+ 
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <!-- USERNAME -->
+      <div class="field">
+        <label>Usuário</label>
+        <input type="text" formControlName="username" />
+ 
+        <small
+          class="error"
+          *ngIf="form.get('username')?.touched && form.get('username')?.errors?.['required']"
+        >
+          Usuário é obrigatório
+        </small>
+ 
+        <small
+          class="error"
+          *ngIf="form.get('username')?.touched && form.get('username')?.errors?.['minlength']"
+        >
+          Mínimo 3 caracteres
+        </small>
+      </div>
+ 
+      <div class="field">
+        <label>Senha</label>
+        <input type="password" formControlName="password" />
+ 
+        <small
+          class="error"
+          *ngIf="form.get('password')?.touched && form.get('password')?.errors?.['required']"
+        >
+          Senha é obrigatória
+        </small>
+ 
+        <small
+          class="error"
+          *ngIf="form.get('password')?.touched && form.get('password')?.errors?.['minlength']"
+        >
+          Mínimo 3 caracteres
+        </small>
+      </div>
+ 
+      <div class="actions">
+        <button type="submit" [disabled]="loading || form.invalid">
+          {{ loading ? 'Salvando...' : 'Cadastrar' }}
+        </button>
+ 
+        <button type="button" (click)="irParaLogin()">Ir para login</button>
+      </div>
+    </form>
+  </div>
+</section>
